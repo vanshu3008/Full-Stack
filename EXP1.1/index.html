@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Sign Up</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            width: 380px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        .field {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #667eea;
+        }
+
+        .error {
+            font-size: 12px;
+            color: #e63946;
+            display: none;
+        }
+
+        input:invalid ~ .error {
+            display: block;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #667eea;
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #5a67d8;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="card">
+    <h2>Student Sign Up</h2>
+
+    <form>
+        <div class="field">
+            <label>Student Name</label>
+            <input type="text" pattern="[A-Za-z\s]{9,50}" required>
+            <div class="error">Name must be 9–50 alphabets</div>
+        </div>
+
+        <div class="field">
+            <label>Email Address</label>
+            <input type="email" required>
+            <div class="error">Enter a valid email address</div>
+        </div>
+
+        <div class="field">
+            <label>Age</label>
+            <input type="number" min="16" max="30" required>
+            <div class="error">Allowed age: 16 to 30</div>
+        </div>
+
+        <button type="submit">Create Account</button>
+    </form>
+</div>
+
+</body>
+</html>

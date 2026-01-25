@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Control Panel</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background: #111827;
+            color: #f9fafb;
+            transition: 0.3s;
+        }
+
+        body.light {
+            background: #e5e7eb;
+            color: #111827;
+        }
+
+        .topbar {
+            padding: 15px 25px;
+            background: #1f2937;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        body.light .topbar {
+            background: #ffffff;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        .sidebar {
+            width: 220px;
+            background: #1f2937;
+            padding: 20px;
+            min-height: calc(100vh - 60px);
+        }
+
+        body.light .sidebar {
+            background: #ffffff;
+        }
+
+        .menu {
+            margin-bottom: 15px;
+            padding: 10px;
+            background: #374151;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        body.light .menu {
+            background: #f3f4f6;
+        }
+
+        .content {
+            flex: 1;
+            padding: 25px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .panel {
+            padding: 20px;
+            border-radius: 10px;
+            background: #1f2937;
+            text-align: center;
+        }
+
+        body.light .panel {
+            background: #ffffff;
+        }
+
+        button {
+            padding: 8px 14px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            background: #6366f1;
+            color: white;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="topbar">
+    <h2>Admin Control Panel</h2>
+    <button onclick="switchTheme()">Toggle Theme</button>
+</div>
+
+<div class="container">
+
+    <div class="sidebar">
+        <div class="menu">Dashboard</div>
+        <div class="menu">Users</div>
+        <div class="menu">Reports</div>
+        <div class="menu">Settings</div>
+    </div>
+
+    <div class="content">
+        <div class="panel">System Stats</div>
+        <div class="panel">User Activity</div>
+        <div class="panel">Revenue</div>
+        <div class="panel">Notifications</div>
+    </div>
+
+</div>
+
+<script>
+    function switchTheme() {
+        document.body.classList.toggle("light");
+        localStorage.setItem(
+            "mode",
+            document.body.classList.contains("light") ? "light" : "dark"
+        );
+    }
+
+    if (localStorage.getItem("mode") === "light") {
+        document.body.classList.add("light");
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Bank App</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        body {
+            background: linear-gradient(120deg, #89f7fe, #66a6ff);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            width: 360px;
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .balance {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #2b2b2b;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        button {
+            width: 48%;
+            padding: 10px;
+            border: none;
+            color: white;
+            font-size: 15px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .add {
+            background: #2ecc71;
+        }
+
+        .sub {
+            background: #e74c3c;
+        }
+
+        .message {
+            margin-top: 15px;
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="card">
+    <h2>My Bank Account</h2>
+
+    <div class="balance">
+        Current Balance: ₹<span id="bal">1000</span>
+    </div>
+
+    <input type="number" id="money" placeholder="Enter amount">
+
+    <div class="btn-group">
+        <button class="add" onclick="addMoney()">Deposit</button>
+        <button class="sub" onclick="removeMoney()">Withdraw</button>
+    </div>
+
+    <div class="message" id="info"></div>
+</div>
+
+<script>
+    let bal = 1000;
+
+    function addMoney() {
+        let value = Number(document.getElementById("money").value);
+
+        if (value <= 0) {
+            showMsg("Please enter a valid amount");
+            return;
+        }
+
+        bal += value;
+        updateBalance();
+    }
+
+    function removeMoney() {
+        let value = Number(document.getElementById("money").value);
+
+        if (value <= 0) {
+            showMsg("Please enter a valid amount");
+            return;
+        }
+
+        if (value > bal) {
+            showMsg("Insufficient balance");
+            return;
+        }
+
+        bal -= value;
+        updateBalance();
+    }
+
+    function updateBalance() {
+        document.getElementById("bal").innerText = bal;
+        document.getElementById("info").innerText = "";
+        document.getElementById("money").value = "";
+    }
+
+    function showMsg(text) {
+        document.getElementById("info").innerText = text;
+    }
+</script>
+
+</body>
+</html>

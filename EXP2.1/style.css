@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: radial-gradient(circle at top, #1c2b4a, #050b1a);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.box {
+    position: relative;
+    width: 500px;
+    height: 200px;
+    padding: 20px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+textarea {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    resize: none;
+    color: #dfe6f3;
+    font-size: 26px;
+}
+
+textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+#counter {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 22px;
+}

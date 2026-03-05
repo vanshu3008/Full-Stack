@@ -1,0 +1,16 @@
+{
+  "name": "redis-seat-booking",
+  "version": "1.0.0",
+  "description": "Seat booking system using Redis distributed locking",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.22.1",
+    "redis": "^4.7.1",
+    "uuid": "^9.0.1"
+  }
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Seat Booking System</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="bg-gradient-to-r from-purple-600 to-blue-500 h-screen flex items-center justify-center">
+
+<div class="bg-white shadow-2xl rounded-2xl p-10 w-96 text-center">
+
+<h1 class="text-3xl font-bold mb-6 text-gray-800">
+🎟 Seat Booking System
+</h1>
+
+<button onclick="bookSeat()"
+class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl w-full transition">
+
+Book Seat
+
+</button>
+
+<button onclick="resetSeats()"
+class="bg-red-500 hover:bg-red-700 text-white px-6 py-3 rounded-xl w-full mt-4 transition">
+
+Reset Seats
+
+</button>
+
+<div class="mt-6">
+
+<p id="result" class="text-gray-700 font-semibold"></p>
+
+</div>
+
+</div>
+
+<script>
+
+async function bookSeat(){
+
+const res = await fetch("/api/book",{
+method:"POST"
+})
+
+const data = await res.json()
+
+if(data.success){
+
+document.getElementById("result").innerHTML =
+"✅ Booking Confirmed <br>Remaining Seats: "+data.remaining
+
+}else{
+
+document.getElementById("result").innerHTML =
+"❌ "+data.msg
+
+}
+
+}
+
+async function resetSeats(){
+
+const res = await fetch("/api/reset",{
+method:"POST"
+})
+
+const data = await res.json()
+
+document.getElementById("result").innerHTML =
+"🔄 Seats Reset to "+data.total
+
+}
+
+</script>
+
+</body>
+
+</html>

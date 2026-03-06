@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Product Catalog</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🛒 Product Catalog</h1>
+
+<div class="controls">
+
+<input type="text" id="search" placeholder="Search product...">
+
+<select id="categoryFilter">
+<option value="">All Categories</option>
+<option value="Electronics">Electronics</option>
+<option value="Clothing">Clothing</option>
+<option value="Books">Books</option>
+</select>
+
+<button onclick="resetFilters()">Reset</button>
+
+<button class="addBtn" onclick="toggleForm()">+ Add Product</button>
+
+</div>
+
+
+<!-- ADD PRODUCT FORM (HIDDEN INITIALLY) -->
+
+<div id="productForm" class="form hidden">
+
+<input id="name" placeholder="Product Name">
+
+<input id="price" placeholder="Price">
+
+<input id="category" placeholder="Category">
+
+<input id="image" placeholder="Image URL">
+
+<button onclick="addProduct()">Save Product</button>
+
+</div>
+
+
+<div id="productList" class="products"></div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
